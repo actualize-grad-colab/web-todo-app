@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Content } from "./Content";
+import { TodoNew } from "./TodoNew";
+
+export type Todo = { name: string };
 
 function App() {
+  const initialState: Array<Todo> = [{ name: "Get milk" }, { name: "Break code" }, { name: "Cry" }];
+  const [todos, setTodos] = useState(initialState);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Content todos={todos} />
+      {/*
+      // @ts-ignore */}
+      <TodoNew setTodos={setTodos} todos={todos} />
     </div>
   );
 }

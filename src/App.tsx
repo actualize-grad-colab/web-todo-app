@@ -5,7 +5,11 @@ import { TodoNew } from "./TodoNew";
 export type Todo = { name: string };
 
 function App() {
-  const initialState: Array<Todo> = [{ name: "Get milk" }, { name: "Break code" }, { name: "Cry" }];
+  const initialState: Array<Todo> = [
+    { name: "Get milk" },
+    { name: "Break code" },
+    { name: "Cry" },
+  ];
   const [todos, setTodos] = useState(initialState);
   return (
     <div>

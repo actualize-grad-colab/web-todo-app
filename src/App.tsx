@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Content } from "./Content";
 import { TodoNew } from "./TodoNew";
+import axios from "axios";
 
-export type Todo = { name: string };
+export type Todo = { title: string; body: string };
 
 function App() {
-  const initialState: Array<Todo> = [{ name: "Get milk" }, { name: "Break code" }, { name: "Cry" }];
-  const [todos, setTodos] = useState(initialState);
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3300/api/v1/todos").then((response) => {
+      console.log("Engel: ", JSON.stringify(response));
+      setTodos(response.data);
+    });
+  }, []);
+
   return (
     <div>
       <Content todos={todos} />

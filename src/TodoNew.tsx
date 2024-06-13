@@ -10,9 +10,11 @@ export function TodoNew({ setTodos, todos }: TodoNewProps) {
     <div>
       <input
         type="text"
-        name="name"
+        name="title"
         id=""
-        onChange={(e) => setData({ name: e.target.value })}
+        onChange={(e) =>
+          setData({ title: e.target.value, body: e.target.value })
+        }
       />
       <button onClick={(e) => setTodos([...todos, data])}>Submit</button>
     </div>

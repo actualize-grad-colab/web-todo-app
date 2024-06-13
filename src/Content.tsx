@@ -14,8 +14,9 @@ export function Content({ todos }: ContentProps) {
     <div>
       <h1>All Todos</h1>
       {todos.map((todo) => (
-        <div key={todo.name}>
-          <p>{todo.name}</p>
+        <div key={todo.title}>
+          <h2>-{todo.title}</h2>
+          <p>{todo.body}</p>
         </div>
       ))}
     </div>

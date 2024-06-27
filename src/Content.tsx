@@ -11,10 +11,10 @@ export function Content({ todos }: ContentProps) {
   // useEffect(handleIndexTodos, []);
 
   return (
-    <div>
+    <div className="index">
       <h1>All Todos</h1>
       {todos.map((todo) => (
-        <div key={todo.title}>
+        <div className="index-content" key={todo.title}>
           <h2>-{todo.title}</h2>
           <p>{todo.body}</p>
         </div>

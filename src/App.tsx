@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     axios.get("http://localhost:3300/api/v1/todos").then((response) => {
       console.log("Engel: ", JSON.stringify(response));
-      setTodos(response.data);
+      setTodos(response.data.todos);
     });
   }, []);
 
